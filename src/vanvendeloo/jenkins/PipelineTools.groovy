@@ -7,5 +7,6 @@ def getCurrentVersion() {
 }
 
 def getCommitId() {
+    echo "Retrieving commit Id..."
     return sh(script: 'git rev-parse --short HEAD', returnStdout: true)?.trim()
 }
