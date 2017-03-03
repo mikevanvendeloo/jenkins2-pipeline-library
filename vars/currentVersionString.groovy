@@ -1,11 +1,6 @@
-package vanvendeloo.jenkins
-
-def getCurrentVersion() {
+#!/usr/bin/groovy
+String call() {
     def matcher = readFile('pom.xml') =~ '<version>(.+?-.*)</version>'
     //matcher ? matcher[0][1].tokenize(".") : null
     return matcher ? matcher[0][1] : null
-}
-
-def getCommitId() {
-    return sh(script: 'git rev-parse --short HEAD', returnStdout: true)?.trim()
 }
